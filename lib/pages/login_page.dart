@@ -17,7 +17,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String login_background = "login_background.png";
+  String login_background = "introduce_background.png";
   int animationDuration = 1;
   //  logo position
   double logo_width = 140.w;
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  // show logo's and logoName's animation after 3 seconds
+  // show logo's , logoName's, backgroundImage's animation after 3 seconds
   void showAnimated() {
     Timer(Duration(seconds: 3), () {
       setState(() {
@@ -57,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
         logo_top_position = 29.h;
         logoName_left_position = 85.w;
         logoName_top_position = 38.h;
+        login_background = "login_background.png";
       });
     });
   }
@@ -64,41 +65,41 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            // login backgound-image
-            LoginBackgroundImage(login_background: login_background),
-            // logo-animation
-            LogoAnimation(
-              logo_left_position: logo_left_position,
-              logo_top_position: logo_top_position,
-              logo_width: logo_width,
-              logo_height: logo_height,
-              animationDuration: animationDuration,
-            ),
-            // logoName-animation
-            LogoNameAnimation(
-              logoName_top_position: logoName_top_position,
-              logoName_left_position: logoName_left_position,
-              animationDuration: animationDuration,
-            ),
-            // Positioned(
-            //   left: description_left_position,
-            //   bottom: description_bottom_position,
-            //   child: Text(
-            //     "一个找搭子的app",
-            //     style: TextStyle(
-            //         color: Colors.white,
-            //         fontSize: 12.sp,
-            //         fontWeight: FontWeight.w600),
-            //   ),
-            // ),
-            LoginForm()
-          ],
+        backgroundColor: Colors.black,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              // login backgound-image
+              LoginBackgroundImage(login_background: login_background),
+              // logo-animation
+              LogoAnimation(
+                logo_left_position: logo_left_position,
+                logo_top_position: logo_top_position,
+                logo_width: logo_width,
+                logo_height: logo_height,
+                animationDuration: animationDuration,
+              ),
+              // logoName-animation
+              LogoNameAnimation(
+                logoName_top_position: logoName_top_position,
+                logoName_left_position: logoName_left_position,
+                animationDuration: animationDuration,
+              ),
+              // Positioned(
+              //   left: description_left_position,
+              //   bottom: description_bottom_position,
+              //   child: Text(
+              //     "一个找搭子的app",
+              //     style: TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 12.sp,
+              //         fontWeight: FontWeight.w600),
+              //   ),
+              // ),
+              LoginForm()
+            ],
+          ),
         ),
-      ),
-    );
+        resizeToAvoidBottomInset: false);
   }
 }

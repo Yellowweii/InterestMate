@@ -8,11 +8,12 @@ class LoginBackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(DomainConstant.domain + login_background),
-              fit: BoxFit.cover)),
+              image: AssetImage("images/${login_background}"),
+              fit: BoxFit.contain)),
+      duration: Duration(seconds: 1),
     );
   }
 }
